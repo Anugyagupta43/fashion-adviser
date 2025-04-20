@@ -1,58 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - Fashionify</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  
-   <link href="style.css" rel="stylesheet">
-</head>
-<body>
-  <!-- Toggle Theme -->
-  <div class="theme-toggle">
-    <label class="switch">
-      <input type="checkbox" id="themeToggle">
-      <span class="slider"></span>
-    </label>
-  </div>
-
-  <!-- Main Login Form -->
-  <div class="login-container">
-    <h1>Welcome Back!</h1>
-    <p>Log in to continue exploring fashion</p>
-    <form>
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="you@example.com" required />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password" required />
-      </div>
-      <div class="actions">
-        <label><input type="checkbox" /> Remember me</label>
-        <a href="#">Forgot password?</a>
-      </div>
-    <button id="login-btn" class="login-btn" type="button" onclick="window.location.href='home.html';">Log In</button>
-
-    </form>
-
-    <div class="divider">Or log in with</div>
-    <div class="social-icons">
-      <button class="social-btn">Continue with Google</button>
-      <button class="social-btn">Continue with Facebook</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Fashionify</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Toggle Theme -->
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
     </div>
-    <div class="signup">
-      Don’t have an account? <a href="signup.html">Sign Up</a>
-    </div>
-  </div>
 
-  <script>
-    const toggle = document.getElementById('themeToggle');
-    toggle.addEventListener('change', () => {
-      document.body.classList.toggle('light');
-    });
-  </script>
-</body>
+    <!-- Main Login Form -->
+    <div class="login-container">
+      <h1>Welcome Back!</h1>
+      <p>Log in to continue exploring fashion</p>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="you@example.com"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <div class="actions">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button class="login-btn" type="submit">Log In</button>
+      </form>
+
+      <div class="divider">Or log in with</div>
+      <div class="social-icons">
+        <button class="social-btn">Continue with Google</button>
+        <button class="social-btn">Continue with Facebook</button>
+      </div>
+      <div class="signup">
+        Don’t have an account? <a href="signup.html">Sign Up</a>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("login-form");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const user = users.find((user) => user.email === email);
+
+        if (!user) {
+          alert("User not found. Please sign up first.");
+          return;
+        }
+
+        if (user.password !== password) {
+          alert("Incorrect password. Try again.");
+          return;
+        }
+
+        alert(`Welcome back, ${user.name}!`);
+        window.location.href = "home.html";
+      });
+    </script>
+  </body>
 </html>
