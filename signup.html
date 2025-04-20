@@ -55,38 +55,28 @@
       </div>
     </div>
 
-    <script>
-      const form = document.getElementById("signup-form");
+  <script>
+  async function signupUser() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
+    const res = await fetch('http://localhost:3000/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
+    const text = await res.text();
+    alert(text);
+    if (res.status === 201) {
+      window.location.href = 'home.html';
+    }
+  }
 
-        let users = JSON.parse(localStorage.getItem("users")) || [];
-
-        // Check if email or name already exists
-        const exists = users.some(
-          (user) => user.email === email || user.name === name
-        );
-
-        if (exists) {
-          alert("User with this name or email already exists.");
-          return;
-        }
-
-        users.push({ name, email, password });
-        localStorage.setItem("users", JSON.stringify(users));
-
-        alert("Signup successful! Please log in.");
-        window.location.href = "first.html"; // login page
-      });
-      const toggle = document.getElementById('themeToggle');
+ const toggle = document.getElementById('themeToggle');
     toggle.addEventListener('change', () => {
       document.body.classList.toggle('light');
     });
-    </script>
-  </body>
+  </script>
+</body>
 </html>
