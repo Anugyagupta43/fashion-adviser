@@ -27,24 +27,34 @@
       background-color: var(--bg-dark);
       color: var(--text-dark);
       padding-bottom: 80px;
+        overflow-x: hidden;
     }
 
     body.light {
-       background: linear-gradient(to left, #ffffff,#fdf6ff);
+       background:  #fdf6ff;
       color: var(--primary-light);
     }
 
     header {
-      position: sticky;
       top: 0;
       z-index: 1000;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       padding: 1rem 2rem;
       background-color:  #FF007A;
-      color:#fff;
+      height: 50px;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
     }
+.theme-toggle,
+.logo,
+.header-icons {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
 
     body.light header {
       background-color:  #C8A2C8 ;
@@ -54,24 +64,29 @@
     .logo {
       font-weight: bold;
       font-size: 1.5rem;
+      justify-content: start;
+      font-size: 24px;
+      margin-left: 30px;
+
     }
 
     .header-icons {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
     }
 
     .header-icons a {
       color: white;
       text-decoration: none;
-      margin-right: 40px;
+      margin-right: 30px;
+      margin-left:600px;
       font-size: 1.4rem;
     }
 
     .theme-toggle {
-    position: absolute;
     top: 48px;
-    right: 60px;
+
   }
 
   /* Cute Toggle Switch */
@@ -139,17 +154,21 @@
   font-size: 3rem; /* Adjust the size as needed */
 }
 
+.main-content {
+  padding-top: 30px; /* same height as your header */
+}
 
 
     .carousel {
       display: flex;
       gap: 1rem;
       scroll-snap-type: x mandatory;
+      justify-content: space-around;
     }
 
     .carousel-item {
       flex: 0 0 auto;
-      width: 280px;
+      width: 235px;
       height: 250px;
       border-radius: 15px;
       overflow: hidden;
@@ -218,9 +237,10 @@
     <span class="slider"></span>
   </label>
 </div>
-
-    </div>
+ </div>
   </header>
+
+<div class="main-content">
 
   <div class="section">
 <h2 class="section-title">For <span class="fancy-text">her</span></h2>
@@ -231,6 +251,7 @@
       <div class="carousel-item"><img src="https://i.pinimg.com/736x/1c/95/f0/1c95f06606f937ca2a3360994b3c5901.jpg" alt="Ethnic Wear" /><div class="overlay-text">Ethnic Wear</div></div>
       <div class="carousel-item"><img src="https://i.pinimg.com/736x/2e/6b/73/2e6b733885d2e15dd63ea7c5ee580c57.jpg" alt="Western Wear" /><div class="overlay-text">Western Wear</div></div>
       <div class="carousel-item"><img src="https://i.pinimg.com/736x/57/6b/df/576bdf5ce8cd00e6df882e6fbd458a57.jpg" alt="Wedding Wear" /><div class="overlay-text">Wedding Wear</div></div>
+      <div class="carousel-item"><img src="https://i.pinimg.com/736x/ab/46/3b/ab463b5f69a6481e8897066635af4cd2.jpg" alt="Wedding Wear" /><div class="overlay-text">Business Formals</div></div>
     </div>
   </div>
 
@@ -242,6 +263,7 @@
       <div class="carousel-item"><img src="https://i.pinimg.com/736x/72/c9/2e/72c92ebadb4705054c14c9e530d25f87.jpg" alt="Ethnic Wear" /><div class="overlay-text">Ethnic Wear</div></div>
       <div class="carousel-item"><img src="https://i.pinimg.com/736x/7f/35/5c/7f355ca0b42aec63a541d55829a76299.jpg" alt="Western Wear" /><div class="overlay-text">Western Wear</div></div>
       <div class="carousel-item"><img src="https://i.pinimg.com/736x/7c/d9/99/7cd999829eec71df2f86ba20703ad538.jpg" alt="Wedding Wear" /><div class="overlay-text">Wedding Wear</div></div>
+       <div class="carousel-item"><img src="https://i.pinimg.com/736x/b6/8c/43/b68c43ce8f82e4037d78c751610d1420.jpg" alt="Wedding Wear" /><div class="overlay-text">Business Formals</div></div>
     </div>
   </div>
 <div class="section">
@@ -251,10 +273,21 @@
       <div class="carousel-item"><img src="https://i.pinimg.com/736x/9e/14/dd/9e14ddeba7ce12d4dacd02da96dd54d4.jpg" alt="Shoes 2" /><div class="overlay-text">Heels</div></div>
       <div class="carousel-item"><img src="https://i.pinimg.com/736x/83/94/56/83945654b0986ad20c3009b5187dfe41.jpg" alt="Shoes 2" /><div class="overlay-text">Formal Wear</div></div>
      <div class="carousel-item"><img src="https://i.pinimg.com/736x/5f/d1/cd/5fd1cd141baaf977cfc0a60fd0e43d8e.jpg" alt="Shoes 2" /><div class="overlay-text">Semi Formals</div></div>
+      <div class="carousel-item"><img src="https://i.pinimg.com/736x/8e/a2/d9/8ea2d98c1b515236a0833add5655f090.jpg" alt="Shoes 2"/><div class="overlay-text">Daily Wear</div></div>
         <div class="carousel-item"><img src="https://i.pinimg.com/736x/4d/6c/3d/4d6c3d34c6d6ebaa09d8f105afc2e159.jpg" alt="Shoes 2" /><div class="overlay-text">Wedding Wear</div></div>
     </div>
   </div>
-  
+   <div class="section">
+    <h2 class="section-title">Accessories</h2>
+    <div class="carousel">
+      <div class="carousel-item"><img src="https://i.pinimg.com/736x/23/41/45/2341455db9fb17494d04e36283ae424a.jpg" alt="Accessory 1" /><div class="overlay-text">Watches</div></div>
+      <div class="carousel-item"><img src="https://i.pinimg.com/736x/43/ef/67/43ef67d7c365a2ed716de0d4252aee64.jpg" alt="Accessory 2" /><div class="overlay-text">Sunglasses</div></div>
+      <div class="carousel-item"><img src="https://i.pinimg.com/736x/8c/32/3b/8c323b416e42bebc6e2bc391abcb9d32.jpg" alt="Accessory 2" /><div class="overlay-text">Bracelets</div></div>
+      <div class="carousel-item"><img src="https://i.pinimg.com/736x/87/71/b5/8771b50159ce8013bce3d97b7e02403b.jpg" alt="Accessory 2" /><div class="overlay-text">Studs</div></div>
+      <div class="carousel-item"><img src="https://i.pinimg.com/736x/9a/99/22/9a99227fa1c7a42c0a91d64ea88ad152.jpg" alt="Accessory 2" /><div class="overlay-text">Neck Pieces</div></div>
+    </div>
+    
+  </div>
     <div class="section">
     <h2 class="section-title">Seasonal Fashion</h2>
     <div class="carousel">
@@ -275,13 +308,14 @@
   </div>
 
   
-
+</div>
 
 
   <footer>
     <a href="profile.html"><i class="fa fa-user"></i><span>Profile</span></a>
     <a href="home.html"><i class="fa fa-home"></i><span>Home</span></a>
     <a href="ootd.html"><i class="fa fa-camera"></i><span>OOTD</span></a>
+     <a href="blog.html"><i class="fa fa-pencil"></i><span>Blog</span></a>
   </footer>
 
   <script>
@@ -289,6 +323,22 @@
     toggle.addEventListener('change', () => {
       document.body.classList.toggle('light');
     });
+  const carousels = document.querySelectorAll('.carousel');
+
+  carousels.forEach(carousel => {
+    let scrollAmount = 0;
+
+    setInterval(() => {
+      carousel.scrollBy({ left: 1, behavior: 'smooth' });
+      scrollAmount += 1;
+      if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) {
+        scrollAmount = 0;
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      }
+    }, 20); // Adjust speed here
+  });
+
+
   </script>
 </body>
 
