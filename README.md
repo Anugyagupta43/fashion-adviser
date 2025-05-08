@@ -2,7 +2,7 @@
 # 👗 Fashion Recommendation System
 
 A smart, web-based application that provides personalized fashion suggestions by analyzing user preferences, behavior, and trending fashion data. It enhances the online shopping experience with intelligent recommendations and seamless integration with e-commerce and social media platforms.
-Link: https://681c9b5c3a47593c917e792d--cute-gaufre-bc897a.netlify.app/
+Link:https://virtual-fashion-advisor.netlify.app/
 
 ## 📌 Table of Contents
 
