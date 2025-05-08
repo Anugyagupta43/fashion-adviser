@@ -84,6 +84,10 @@
         alert(`Welcome back, ${user.name}!`);
         window.location.href = "home.html";
       });
+       const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('light');
+    });
     </script>
   </body>
 </html>
