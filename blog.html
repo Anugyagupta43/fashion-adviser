@@ -233,13 +233,9 @@
     .blog-meta {
       display: flex;
       justify-content: space-between;
-      color: var(--primary-dark);
+      color: var(--accent);
       font-size: 0.9rem;
       margin-bottom: 1rem;
-    }
-
-    body.light .blog-meta {
-      color: var(--accent);
     }
 
     .blog-excerpt {
@@ -252,52 +248,21 @@
       color: #000;
     }
 
+    .read-more {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
     .category-tag {
-      background: var(--primary-dark);
+      background: var(--accent);
       color: var(--bg-dark);
       padding: 0.3rem 0.8rem;
       border-radius: 15px;
       font-size: 0.8rem;
       margin-right: 0.5rem;
-      transition: all 0.3s ease;
-    }
-
-    body.light .category-tag {
-      background: var(--accent);
-      color: var(--bg-light);
-    }
-
-    .read-more {
-      color: var(--primary-dark);
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      margin-top: 1rem;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .read-more::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      background-color: var(--primary-dark);
-      transition: width 0.3s ease;
-    }
-
-    .read-more:hover::after {
-      width: 100%;
-    }
-
-    body.light .read-more {
-      color: var(--accent);
-    }
-
-    body.light .read-more::after {
-      background-color: var(--accent);
     }
 
     footer {
@@ -346,77 +311,6 @@
         grid-template-columns: 1fr;
         padding: 1rem;
       }
-    }
-
-    .loading {
-      text-align: center;
-      padding: 2rem;
-      font-size: 1.2rem;
-      color: var(--primary-dark);
-    }
-
-    .error-message {
-      text-align: center;
-      padding: 2rem;
-      color: #ff4444;
-    }
-
-    .retry-button {
-      background: var(--primary-dark);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-
-    .no-news {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text-dark);
-    }
-
-    body.light .loading,
-    body.light .no-news {
-      color: var(--accent);
-    }
-
-    body.light .retry-button {
-      background: var(--accent);
-    }
-
-    .refresh-button {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--primary-dark);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .refresh-button:hover {
-      transform: scale(1.05);
-      background: var(--accent);
-    }
-
-    .refresh-button i {
-      font-size: 1rem;
-    }
-
-    body.light .refresh-button {
-      background: var(--accent);
-    }
-
-    body.light .refresh-button:hover {
-      background: var(--primary-dark);
     }
   </style>
 </head>
@@ -577,186 +471,6 @@
     toggle.addEventListener('change', () => {
       document.body.classList.toggle('light');
     });
-
-    // News API Integration
-    const NEWS_API_KEY = '24eeee565f1a4e1983a310c56c20fcfb';
-    const FASHION_KEYWORDS = ['fashion', 'vogue', 'style', 'runway', 'haute couture', 'designer', 'clothing', 'trend', 'fashion week'];
-    
-    async function fetchFashionNews() {
-      const blogGrid = document.querySelector('.blog-grid');
-      blogGrid.innerHTML = '<div class="loading">Loading latest fashion news...</div>';
-      
-      try {
-        console.log('Fetching news...');
-        // Using a different CORS proxy
-        const corsProxy = 'https://api.allorigins.win/raw?url=';
-        const apiUrl = encodeURIComponent(`https://newsapi.org/v2/everything?q=fashion&language=en&sortBy=publishedAt&apiKey=${NEWS_API_KEY}`);
-        
-        const response = await fetch(corsProxy + apiUrl);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        console.log('API Response:', data);
-        
-        if (data.status === 'ok') {
-          const fashionNews = data.articles.filter(article => 
-            FASHION_KEYWORDS.some(keyword => 
-              article.title.toLowerCase().includes(keyword) || 
-              article.description.toLowerCase().includes(keyword)
-            )
-          );
-          
-          console.log('Filtered fashion news:', fashionNews);
-          if (fashionNews.length === 0) {
-            blogGrid.innerHTML = `
-              <div class="no-news">
-                <p>No fashion news available at the moment.</p>
-                <p>Try refreshing the page later.</p>
-              </div>
-            `;
-          } else {
-            updateBlogSection(fashionNews);
-          }
-        } else {
-          throw new Error(data.message || 'Failed to fetch news');
-        }
-      } catch (error) {
-        console.error('Error fetching news:', error);
-        blogGrid.innerHTML = `
-          <div class="error-message">
-            <p>Unable to load fashion news. Please try again later.</p>
-            <p>Error: ${error.message}</p>
-            <button onclick="fetchFashionNews()" class="retry-button">Retry</button>
-          </div>
-        `;
-      }
-    }
-
-    function updateBlogSection(news) {
-      const blogGrid = document.querySelector('.blog-grid');
-      blogGrid.innerHTML = ''; // Clear existing content
-
-      if (!news || news.length === 0) {
-        blogGrid.innerHTML = '<div class="no-news">No fashion news available at the moment.</div>';
-        return;
-      }
-
-      news.slice(0, 6).forEach(article => {
-        const date = new Date(article.publishedAt).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
-
-        const blogCard = `
-          <article class="blog-card">
-            <img src="${article.urlToImage || 'https://via.placeholder.com/400x200?text=Fashion+News'}" 
-                 alt="${article.title}" 
-                 class="blog-image"
-                 onerror="this.src='https://via.placeholder.com/400x200?text=Fashion+News'">
-            <div class="blog-content">
-              <div class="blog-meta">
-                <span>${date}</span>
-                <span class="category-tag">${article.source.name}</span>
-              </div>
-              <h3 class="blog-title">${article.title}</h3>
-              <p class="blog-excerpt">${article.description || 'Read more about this fashion news...'}</p>
-              <a href="${article.url}" target="_blank" class="read-more">Read More →</a>
-            </div>
-          </article>
-        `;
-        blogGrid.innerHTML += blogCard;
-      });
-    }
-
-    // Add a refresh button to the blog section
-    const blogSection = document.querySelector('.section');
-    const refreshButton = document.createElement('button');
-    refreshButton.className = 'refresh-button';
-    refreshButton.innerHTML = '<i class="fa fa-refresh"></i> Refresh News';
-    refreshButton.onclick = fetchFashionNews;
-    blogSection.insertBefore(refreshButton, blogSection.firstChild);
-
-    // Add styles for the refresh button
-    const style = document.createElement('style');
-    style.textContent = `
-      .refresh-button {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: var(--primary-dark);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        transition: all 0.3s ease;
-      }
-
-      .refresh-button:hover {
-        transform: scale(1.05);
-        background: var(--accent);
-      }
-
-      .refresh-button i {
-        font-size: 1rem;
-      }
-
-      body.light .refresh-button {
-        background: var(--accent);
-      }
-
-      body.light .refresh-button:hover {
-        background: var(--primary-dark);
-      }
-
-      .loading {
-        text-align: center;
-        padding: 2rem;
-        font-size: 1.2rem;
-        color: var(--primary-dark);
-      }
-
-      .error-message {
-        text-align: center;
-        padding: 2rem;
-        color: #ff4444;
-      }
-
-      .retry-button {
-        background: var(--primary-dark);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 1rem;
-      }
-
-      .no-news {
-        text-align: center;
-        padding: 2rem;
-        color: var(--text-dark);
-      }
-
-      body.light .loading,
-      body.light .no-news {
-        color: var(--accent);
-      }
-
-      body.light .retry-button {
-        background: var(--accent);
-      }
-    `;
-    document.head.appendChild(style);
-
-    // Fetch news when page loads
-    document.addEventListener('DOMContentLoaded', fetchFashionNews);
   </script>
 </body>
 
