@@ -1,0 +1,18 @@
+{
+  "name": "outfit_rec",
+  "version": "1.0.0",
+  "description": "A smart, web-based application that provides personalized fashion suggestions by analyzing user preferences, behavior, and trending fashion data. It enhances the online shopping experience with intelligent recommendations and seamless integration with e-commerce and social media platforms.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.5.3"
+  }
+}
