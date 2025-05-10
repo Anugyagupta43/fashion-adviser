@@ -288,8 +288,8 @@
 
     .carousel-item {
       flex: 0 0 auto;
-      width: 250px;
-      height: 300px;
+      width: 300px;
+      height: 250px;
       border-radius: 20px;
       overflow: hidden;
       scroll-snap-align: start;
@@ -461,10 +461,11 @@
     }
 
     .search-icon {
-      color: var(--accent);
+      color: #fff;
       cursor: pointer;
       font-size: 20px;
       transition: transform 0.3s;
+      border: #fff;
     }
 
     .search-icon:hover {
@@ -495,7 +496,7 @@
       height: 120px;
       object-fit: contain;
       margin-bottom: 1rem;
-      filter: brightness(0) invert(1);
+      
     }
 
     .sales-item h3 {
@@ -621,35 +622,35 @@
           <div class="carousel" id="salesCarousel">
             <div class="carousel-item sales-item">
               <div class="discount-badge">-70%</div>
-              <img src="https://constant.myntassets.com/web/assets/img/80cc455a-92d2-4b5c-a213-7c50c55932471574646154752-ottopilot-500x500.png" alt="Myntra">
+              <img src="myntra.svg" alt="Myntra">
               <h3>Myntra</h3>
               <p>End of Season Sale</p>
               <div class="expiry-badge">Ends in 2 days</div>
             </div>
             <div class="carousel-item sales-item">
               <div class="discount-badge">-50%</div>
-              <img src="https://images.meesho.com/images/logos/meesho.png" alt="Meesho">
+              <img src="meeshop.svg" alt="Meesho">
               <h3>Meesho</h3>
               <p>Mega Fashion Sale</p>
               <div class="expiry-badge">Ends in 5 days</div>
             </div>
             <div class="carousel-item sales-item">
               <div class="discount-badge">-60%</div>
-              <img src="https://images.meesho.com/images/logos/nykaa.png" alt="Nykaa Fashion">
+              <img src="nykaa.svg" alt="Nykaa Fashion">
               <h3>Nykaa Fashion</h3>
               <p>Pink Friday Sale</p>
               <div class="expiry-badge">Ends in 3 days</div>
             </div>
             <div class="carousel-item sales-item">
               <div class="discount-badge">-40%</div>
-              <img src="https://images.meesho.com/images/logos/amazon.png" alt="Amazon Fashion">
+              <img src="amazon.svg" alt="Amazon Fashion">
               <h3>Amazon Fashion</h3>
               <p>Great Indian Festival</p>
               <div class="expiry-badge">Ends in 7 days</div>
             </div>
             <div class="carousel-item sales-item">
               <div class="discount-badge">-55%</div>
-              <img src="https://images.meesho.com/images/logos/flipkart.png" alt="Flipkart">
+              <img src="flipkart.svg" alt="Flipkart">
               <h3>Flipkart</h3>
               <p>Big Billion Days</p>
               <div class="expiry-badge">Ends in 4 days</div>
@@ -736,6 +737,7 @@
           <div class="carousel-item"><img src="https://i.pinimg.com/736x/f9/25/7c/f9257c95f2638334e92d0bd860a726e5.jpg" alt="Shoes 2" /><div class="overlay-text">Winters</div></div>
          <div class="carousel-item"> <img src="https://i.pinimg.com/736x/1c/f2/51/1cf2512d0ab1dd1d416a69d2c4d72ce8.jpg" alt="Shoes 2" /><div class="overlay-text">Rainy</div></div>
          <div class="carousel-item"> <img src="https://i.pinimg.com/736x/cb/68/67/cb6867b61fc2c2defbdf3feb3b5b7474.jpg" alt="Shoes 2" /><div class="overlay-text">Autumn</div></div>
+         <div class="carousel-item"> <img src="https://i.pinimg.com/736x/3d/93/c3/3d93c3186ec9bb42ce8f8cf792eb9e97.jpg" alt="Shoes 2" /><div class="overlay-text">Spring</div></div>
        
         </div>
         <button class="carousel-controls carousel-next">></button>
@@ -750,26 +752,46 @@
         <div class="carousel" id="capsuleCarousel">
           <div class="carousel-item"><img src="https://i.pinimg.com/736x/38/0f/a0/380fa09a3b6e3dec626a03e40071b54c.jpg" alt="Capsule Look 1" /></div>
           <div class="carousel-item"><img src="https://i.pinimg.com/736x/e4/0a/fc/e40afc20934cbcbc7a8e684aac5a893b.jpg" alt="Capsule Look 2" /></div>
-        </div>
+          <div class="carousel-item">
+            <img src="https://i.pinimg.com/736x/51/35/38/513538ab1425156cb99818eb9621a31b.jpg" alt="Capsule Look 3" />
+          </div>
+             <div class="carousel-item">
+            <img src="https://i.pinimg.com/736x/03/45/a6/0345a6ecb24fc20137cd5d84b66d04eb.jpg" alt="Capsule Look 4" />
+          </div>
+             <div class="carousel-item">
+            <img src="https://i.pinimg.com/736x/25/65/1b/25651b5df5e835cb64876b6c5460b9eb.jpg" alt="Capsule Look 5" />
+          </div>
+             <div class="carousel-item">
+            <img src="https://i.pinimg.com/736x/64/b3/08/64b308dc7b556816c436b62dda85645d.jpg" alt="Capsule Look 6" />
+        </div></div>
         <button class="carousel-controls carousel-next">></button>
         <div class="carousel-dots" id="capsuleDots"></div>
       </div>
-    </div>
-
-    
   </div>
 
   <div class="section">
     <h2 class="section-title">Trending Styles</h2>
     <div class="carousel-container">
-      <button class="carousel-controls carousel-prev"></button>
+      <button class="carousel-controls carousel-prev">&lt;</button>
       <div class="carousel" id="trendingCarousel">
-        <div class="carousel-item"><img src="https://i.pinimg.com/736x/8a/7b/4d/8a7b4d3f2e1c5b6a9d8e7f6c5b4a3d2e.jpg" alt="Trending Style 1" /><div class="overlay-text">Y2K Revival</div></div>
-        <div class="carousel-item"><img src="https://i.pinimg.com/736x/9b/8c/5e/9b8c5e4f3d2c1b0a9f8e7d6c5b4a3d2e.jpg" alt="Trending Style 2" /><div class="overlay-text">Minimalist</div></div>
-        <div class="carousel-item"><img src="https://i.pinimg.com/736x/7c/9d/6f/7c9d6f5e4d3c2b1a0f9e8d7c6b5a4d3e.jpg" alt="Trending Style 3" /><div class="overlay-text">Streetwear</div></div>
-        <div class="carousel-item"><img src="https://i.pinimg.com/736x/6d/8e/7f/6d8e7f6e5d4c3b2a1f0e9d8c7b6a5d4e.jpg" alt="Trending Style 4" /><div class="overlay-text">Coastal Grandmother</div></div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/45/02/61/4502618c2043efa09bd718d0b03f7a40.jpg" alt="Trending Style 1" />
+          <div class="overlay-text">Y2K Revival</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/c1/fc/7a/c1fc7abed313e7654ae4e1cc08037585.jpg" alt="Trending Style 2" />
+          <div class="overlay-text">Minimalist</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/42/30/20/423020095b41159c3cb9bf511622c89f.jpg" alt="Trending Style 3" />
+          <div class="overlay-text">Streetwear</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/f5/7d/68/f57d683c1c233c6da6b488ff4eacb496.jpg" alt="Trending Style 4" />
+          <div class="overlay-text">Coastal Grandmother</div>
+        </div>
       </div>
-      <button class="carousel-controls carousel-next"></button>
+      <button class="carousel-controls carousel-next">&gt;</button>
       <div class="carousel-dots" id="trendingDots"></div>
     </div>
   </div>
@@ -779,10 +801,22 @@
     <div class="carousel-container">
       <button class="carousel-controls carousel-prev">❮</button>
       <div class="carousel" id="combinationCarousel">
-        <div class="carousel-item"><img src="https://i.pinimg.com/736x/5e/9f/8d/5e9f8d7c6b5a4d3e2f1e0d9c8b7a6d5e.jpg" alt="Combination 1" /><div class="overlay-text">Casual Chic</div></div>
-        <div class="carousel-item"><img src="https://i.pinimg.com/736x/4f/0a/9e/4f0a9e8d7c6b5a4d3e2f1e0d9c8b7a6d.jpg" alt="Combination 2" /><div class="overlay-text">Business Casual</div></div>
-        <div class="carousel-item"><img src="https://i.pinimg.com/736x/3e/1b/8f/3e1b8f7e6d5c4b3a2f1e0d9c8b7a6d5e.jpg" alt="Combination 3" /><div class="overlay-text">Weekend Vibes</div></div>
-        <div class="carousel-item"><img src="https://i.pinimg.com/736x/2d/2c/9e/2d2c9e8d7c6b5a4d3e2f1e0d9c8b7a6d.jpg" alt="Combination 4" /><div class="overlay-text">Date Night</div></div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/4f/1e/34/4f1e34c11317d82a6b8c7b6d55258f38.jpg" alt="Combination 1" />
+          <div class="overlay-text">Casual Chic</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/53/8f/ea/538fea28e2fea23e1d9653f4d87060c7.jpg" alt="Combination 2" />
+          <div class="overlay-text">Business Casual</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/76/44/ba/7644ba60c27f2b57305269ff242f3a67.jpg" alt="Combination 3" />
+          <div class="overlay-text">Weekend Vibes</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/0c/6e/9d/0c6e9d3d178afe20c211a84b1686f068.jpg" alt="Combination 4" />
+          <div class="overlay-text">Date Night</div>
+        </div>
       </div>
       <button class="carousel-controls carousel-next">❯</button>
       <div class="carousel-dots" id="combinationDots"></div>
